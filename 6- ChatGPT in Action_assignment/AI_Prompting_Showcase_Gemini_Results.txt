@@ -1,0 +1,290 @@
+AI PROMPTING SHOWCASE
+Submitted By: Yash Rakhunde
+AI Model: Google Gemini
+============================================================
+
+TASK 1: DATA EXTRACTOR
+EXACT PROMPT:
+
+You are an expert data extraction assistant.
+
+Read the following text:
+
+"The new 'Starlight' laptop was released on October 26, 2024.
+It features a 14-inch OLED screen, weighs 2.5 lbs,
+and the base model with 16GB of RAM costs $1,299.
+The main complaint from early reviews is its short 6-hour battery life."
+
+Perform the following tasks:
+
+1. Summarize the text in exactly one sentence.
+2. Extract the key details into a valid JSON object.
+
+Include these fields:
+Product Name, Release Date, Screen Size, Display Type,
+Weight, RAM, Price, Battery Life, Main Complaint.
+
+Use valid JSON syntax with double quotes.
+Return the summary and JSON separately.
+
+FULL GEMINI RESPONSE:
+### Summary
+Released on October 26, 2024, for $1,299, the lightweight 14-inch OLED "Starlight" laptop offers 16GB of RAM, but early reviewers criticize its short six-hour battery life.
+
+### Extracted Data (JSON)
+```json
+{
+  "Product Name": "Starlight",
+  "Release Date": "October 26, 2024",
+  "Screen Size": "14-inch",
+  "Display Type": "OLED",
+  "Weight": "2.5 lbs",
+  "RAM": "16GB",
+  "Price": "$1,299",
+  "Battery Life": "6 hours",
+  "Main Complaint": "Short 6-hour battery life"
+}
+```
+
+TASK 2: CODE GENERATOR
+EXACT PROMPT:
+
+Act as an experienced Python programmer.
+
+Write a Python function named calculate_average()
+that accepts a list of numbers and returns their average.
+
+Requirements:
+1. Accept a list of numerical values.
+2. Use sum() and len() to calculate the average.
+3. Handle an empty list by returning 0.
+4. Include comments explaining the code.
+5. Provide an example function call.
+6. Display the expected output.
+
+Write clean, beginner-friendly and executable Python code.
+
+FULL GEMINI RESPONSE:
+Here is the Python solution written according to your requirements:
+
+```python
+def calculate_average(numbers):
+    """Calculates and returns the average of a list of numbers.
+
+    Returns 0 if the list is empty to avoid ZeroDivisionError.
+    """
+    # Check if the list is empty (an empty list evaluates to False in Python)
+    if not numbers:
+        return 0
+
+    # Calculate average: total sum divided by the number of elements
+    average = sum(numbers) / len(numbers)
+
+    return average
+
+
+# --- Example Function Calls ---
+
+# 1. Normal list of numbers
+scores = [85, 90, 78, 92, 88]
+average_score = calculate_average(scores)
+
+# 2. Empty list test
+empty_scores = []
+empty_average = calculate_average(empty_scores)
+
+# Display the results
+print(f"Scores: {scores}")
+print(f"Calculated Average: {average_score}")
+
+print(f"\nScores: {empty_scores}")
+print(f"Calculated Average (empty list): {empty_average}")
+```
+
+### Expected Output
+
+```text
+Scores: [85, 90, 78, 92, 88]
+Calculated Average: 86.6
+
+Scores: []
+Calculated Average (empty list): 0
+```
+
+TASK 3: CODE TRANSLATOR
+EXACT PROMPT:
+
+Act as an expert Python and JavaScript developer.
+
+Convert the following Python code into equivalent JavaScript.
+
+PYTHON CODE GENERATED IN TASK 2:
+
+Here is the Python solution written according to your requirements:
+
+```python
+def calculate_average(numbers):
+    """Calculates and returns the average of a list of numbers.
+
+    Returns 0 if the list is empty to avoid ZeroDivisionError.
+    """
+    # Check if the list is empty (an empty list evaluates to False in Python)
+    if not numbers:
+        return 0
+
+    # Calculate average: total sum divided by the number of elements
+    average = sum(numbers) / len(numbers)
+
+    return average
+
+
+# --- Example Function Calls ---
+
+# 1. Normal list of numbers
+scores = [85, 90, 78, 92, 88]
+average_score = calculate_average(scores)
+
+# 2. Empty list test
+empty_scores = []
+empty_average = calculate_average(empty_scores)
+
+# Display the results
+print(f"Scores: {scores}")
+print(f"Calculated Average: {average_score}")
+
+print(f"\nScores: {empty_scores}")
+print(f"Calculated Average (empty list): {empty_average}")
+```
+
+### Expected Output
+
+```text
+Scores: [85, 90, 78, 92, 88]
+Calculated Average: 86.6
+
+Scores: []
+Calculated Average (empty list): 0
+```
+
+Requirements:
+1. Convert the complete Python code into JavaScript.
+2. Maintain the same functionality and logic.
+3. Handle an empty array by returning 0.
+4. Use appropriate JavaScript functions and methods.
+5. Include comments explaining the code.
+6. Include an example of execution.
+7. Display the expected output.
+
+Write simple, beginner-friendly JavaScript code.
+
+FULL GEMINI RESPONSE:
+Here is the equivalent JavaScript solution converted from your Python code, written in a clean, simple, and beginner-friendly style.
+
+### JavaScript Solution
+
+```javascript
+/**
+ * Calculates and returns the average of an array of numbers.
+ * Returns 0 if the array is empty.
+ * 
+ * @param {number[]} numbers - An array of numbers.
+ * @returns {number} The calculated average.
+ */
+function calculateAverage(numbers) {
+    // Check if the array is empty to prevent division by zero
+    // In JavaScript, we check the .length property of the array
+    if (!numbers || numbers.length === 0) {
+        return 0;
+    }
+
+    // Calculate total sum using the reduce() method
+    // 'sum' accumulates the running total, starting at 0
+    const totalSum = numbers.reduce((sum, current) => sum + current, 0);
+
+    // Calculate average: total sum divided by the number of elements
+    const average = totalSum / numbers.length;
+
+    return average;
+}
+
+// --- Example Function Calls ---
+
+// 1. Normal array of numbers
+const scores = [85, 90, 78, 92, 88];
+const averageScore = calculateAverage(scores);
+
+// 2. Empty array test
+const emptyScores = [];
+const emptyAverage = calculateAverage(emptyScores);
+
+// Display the results using console.log and template literals
+console.log(`Scores: [${scores.join(', ')}]`);
+console.log(`Calculated Average: ${averageScore}`);
+
+console.log(`\nScores: [${emptyScores.join(', ')}]`);
+console.log(`Calculated Average (empty list): ${emptyAverage}`);
+```
+
+---
+
+### Key Differences & Equivalents
+
+1. **Naming Conventions:**
+   * Python commonly uses `snake_case` (e.g., `calculate_average`, `average_score`).
+   * JavaScript conventionally uses `camelCase` (e.g., `calculateAverage`, `averageScore`).
+
+2. **Empty Check:**
+   * Python: `if not numbers:` checks truthiness directly.
+   * JavaScript: Arrays evaluate to `true` even when empty (`[]`), so we explicitly check `numbers.length === 0`.
+
+3. **Summing Elements:**
+   * Python has a built-in `sum()` function.
+   * JavaScript uses `numbers.reduce((acc, curr) => acc + curr, 0)` to sum array values.
+
+4. **Output Printing:**
+   * Python uses `print(f"...")`.
+   * JavaScript uses `console.log(\`...\`)` with template literals (backticks `` ` ``).
+
+---
+
+### Expected Output
+
+```text
+Scores: [85, 90, 78, 92, 88]
+Calculated Average: 86.6
+
+Scores: []
+Calculated Average (empty list): 0
+```
+
+TASK 4: SOCIAL MEDIA MANAGER
+EXACT PROMPT:
+
+Act as a witty and enthusiastic social media manager.
+
+Write an engaging tweet announcing the new Starlight laptop.
+
+Product details:
+- Product Name: Starlight
+- Release Date: October 26, 2024
+- Display: 14-inch OLED screen
+- RAM: 16GB
+- Weight: 2.5 lbs
+- Price: $1,299
+- Battery Life: 6 hours
+
+Instructions:
+1. Write an exciting and attention-grabbing tweet.
+2. Highlight the OLED display, lightweight design,
+   and 16GB RAM.
+3. Mention the price of $1,299.
+4. Include exactly TWO emojis.
+5. Include the hashtag #TechLaunch.
+6. Keep it concise and suitable for Twitter/X.
+7. Do not include explanations outside the tweet.
+
+Make it creative, witty, and enthusiastic.
+
+FULL GEMINI RESPONSE:
+Your spine called, and it’s thanking us. Meet Starlight: packing a jaw-dropping 14” OLED screen and 16GB RAM into a ridiculous 2.5 lbs featherweight frame for just $1,299. ✨ Heavy-duty power that won’t break your back? That’s pure brilliance. 🚀 #TechLaunch
+
